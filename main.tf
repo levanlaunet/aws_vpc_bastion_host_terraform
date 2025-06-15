@@ -38,16 +38,6 @@ module "security" {
   bastion_ssh_cidr = var.bastion_ssh_cidr
 }
 
-# module "compute" {
-#   source = "./modules/compute"
-#   subnet_id = module.networking.public_subnet_ids[0]
-#   ec2_security_group_id = module.security.public_sg_id
-#   key_name = aws_key_pair.ec2_demo_key_pair.key_name
-#   instance_type = var.instance_type
-#   instance_name = var.instance_name
-#   image_id = var.amis[var.region]
-# }
-
 module "bastion" {
   source = "./modules/bastion"
   subnet_id = module.networking.public_subnet_ids[0]
